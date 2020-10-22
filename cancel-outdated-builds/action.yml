@@ -9,6 +9,10 @@ inputs:
     description: How many seconds to wait between checks
     required: true
     default: "60"
+  max_age_minutes:
+    description: Builds will not be cancelled if they have been running longer than this
+    required: true
+    default: "0"
 
 runs:
   using: node12

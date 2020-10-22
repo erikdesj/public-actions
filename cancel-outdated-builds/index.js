@@ -4,7 +4,15 @@ const fetch = require("node-fetch");
 
 const main = (async () => {
     let checkEverySeconds = parseInt(actions.getInput("check_every_seconds", { required: true }));
-    while (true) {
+    let maxAgeMinutes = parseInt(actions.getInput("max_age_minutes", { required: true }));
+
+    let keepChecking = true;
+
+    if (maxAgeMinutes > 0) {
+        setTimeout(() => keepChecking = false, maxAgeMinutes * 60 * 1000);
+    }
+
+    while (keepChecking) {
         if (await isLatestCommit() === false) {
             await cancelRun();
             return;
