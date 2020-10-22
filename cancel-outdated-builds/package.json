@@ -4,7 +4,7 @@
   "description": "Start a daemon that will cancel the current build if a new commit is pushed to the branch",
   "main": "index.js",
   "scripts": {
-    "build": "node_modules/.bin/ncc build --minify index.js"
+    "build": "ncc build --minify index.js"
   },
   "author": "",
   "license": "MIT",
@@ -13,6 +13,6 @@
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {
-    "@zeit/ncc": "^0.20.5"
+    "@vercel/ncc": "^0.24.1"
   }
 }
